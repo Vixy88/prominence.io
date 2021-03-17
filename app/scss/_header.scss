@@ -1,0 +1,114 @@
+.header {
+  // Hamburger Open Styles
+  &.open {
+    .overlay {
+      display: block;
+    }
+
+    .header__menu {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 6rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient($darkBlue, transparent);
+    animation: fade-out;
+  }
+
+  nav {
+    padding: 1.0625rem 1.5rem;
+  }
+
+  &_logo {
+    img {
+      width: 13rem;
+      height: 4rem;
+    }
+  }
+
+  &__menu {
+    // Mobile Menu
+
+    > span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background-color: $darkBlue;
+      transition: all 300ms ease-in-out;
+      transform-origin: 3px 1px;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__links {
+    a {
+      position: relative;
+      font-size: $font-smal;
+      color: $grey;
+      transition: color 300ms ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 2px;
+        left: 0;
+        right: 0;
+        bottom: -5px;
+        background: orange;
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      &:hover {
+        color: $black;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    font-size: $font-smal;
+    color: $white;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 6rem;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient($darkBlue, transparent);
+  }
+}
